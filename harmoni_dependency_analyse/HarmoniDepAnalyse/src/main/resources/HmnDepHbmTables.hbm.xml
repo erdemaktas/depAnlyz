@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 4, 2013 3:35:09 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.sgo.depanalyze.hibernate.datamodel.HmnDepHbmTables"
+		table="HMNDEP_HBM_TABLES">
+		<id name="id" type="long">
+			<column name="ID" precision="16" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_HMNDEP_HBM_TABLES</param>
+			</generator>
+		</id>
+		<property name="executionId" type="long">
+			<column name="EXECUTION_ID" precision="16" scale="0" not-null="true" />
+		</property>
+		<property name="artifactId" type="long">
+			<column name="ARTIFACT_ID" precision="16" scale="0" not-null="true" />
+		</property>
+		<property name="daoClass" type="string">
+			<column name="DAO_CLASS" length="500" not-null="true" />
+		</property>
+		<property name="modelClass" type="string">
+			<column name="MODEL_CLASS" length="500" not-null="true" />
+		</property>
+		<property name="tableName" type="string">
+			<column name="TABLE_NAME" length="500" not-null="true" />
+		</property>
+		<property name="datasource" type="string">
+			<column name="DATASOURCE" length="100" not-null="true" />
+		</property>
+		<property name="hbmFile" type="string">
+			<column name="HBM_FILE" length="500" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

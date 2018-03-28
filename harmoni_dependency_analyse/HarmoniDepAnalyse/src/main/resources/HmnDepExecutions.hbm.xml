@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 24, 2013 9:13:46 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.sgo.depanalyze.hibernate.datamodel.HmnDepExecution"
+		table="HMNDEP_EXECUTIONS">
+		<id name="id" type="long">
+			<column name="ID" precision="16" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_HMNDEP_EXECUTIONS</param>
+			</generator>
+		</id>
+		<property generated="never" lazy="false" name="hostComputer"
+			type="string">
+			<column length="100" name="HOST_COMPUTER" />
+		</property>
+		<property generated="never" lazy="false" name="executionDate"
+			type="timestamp">
+			<column name="EXECUTION_DATE" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="finishDate"
+			type="timestamp">
+			<column name="FINISH_DATE" />
+		</property>
+		<property name="environment" type="string">
+			<column name="ENVIRONMENT" />
+		</property>
+	</class>
+</hibernate-mapping>

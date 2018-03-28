@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 6, 2013 1:49:00 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.sgo.depanalyze.hibernate.datamodel.HmnDepParameter" table="HMNDEP_PARAMETERS">
+		<id name="id" type="long">
+			<column name="ID" precision="16" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_HMNDEP_PARAMETERS</param>
+			</generator>
+		</id>
+
+		<property name="paramName" type="string">
+			<column name="PARAM_NAME" length="500" not-null="true" unique="true" />
+		</property>
+		<property name="paramValue" type="string">
+			<column name="PARAM_VALUE" length="1000" not-null="true" />
+		</property>
+		<property name="environment" type="string">
+			<column name="ENVIRONMENT" />
+		</property>
+	</class>
+</hibernate-mapping>

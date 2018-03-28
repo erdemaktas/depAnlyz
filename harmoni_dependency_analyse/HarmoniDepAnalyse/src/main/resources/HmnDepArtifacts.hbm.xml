@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 24, 2013 9:13:46 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.sgo.depanalyze.hibernate.datamodel.HmnDepArtifact"
+		table="HMNDEP_ARTIFACTS">
+		<id name="id" type="long">
+			<column name="ID" precision="16" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_HMNDEP_ARTIFACTS</param>
+			</generator>
+		</id>
+		<property name="executionId" type="long">
+			<column name="EXECUTION_ID" precision="16" scale="0" not-null="true" />
+		</property>
+		<property name="fileName" type="string">
+			<column name="FILE_NAME" length="500" not-null="true" />
+		</property>
+		<property name="artifactType" type="string">
+			<column name="ARTIFACT_TYPE" length="2" not-null="true" />
+		</property>
+
+		<property name="groupId" type="string">
+			<column name="GROUP_ID" />
+		</property>
+		<property name="artifactId" type="string">
+			<column name="ARTIFACT_ID" />
+		</property>
+		<property name="artifactVersion" type="string">
+			<column name="ARTIFACT_VERSION" />
+		</property>
+		<property name="artifactDesc" type="string">
+			<column name="ARTIFACT_DESC" />
+		</property>
+
+	</class>
+</hibernate-mapping>

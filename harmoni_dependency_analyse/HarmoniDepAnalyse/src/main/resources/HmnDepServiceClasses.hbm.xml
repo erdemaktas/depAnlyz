@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 24, 2013 2:53:28 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.sgo.depanalyze.hibernate.datamodel.HmnDepServiceClass"
+		table="HMNDEP_SERVICE_CLASSES">
+		<id name="id" type="long">
+			<column name="ID" precision="16" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_HMNDEP_SERVICE_CLASSES</param>
+			</generator>
+		</id>
+		<property name="executionId" type="long">
+			<column name="EXECUTION_ID" precision="16" scale="0" not-null="true" />
+		</property>
+		<property name="artifactId" type="long">
+			<column name="ARTIFACT_ID" precision="16" scale="0" not-null="true" />
+		</property>
+		<property name="className" type="string">
+			<column name="CLASS_NAME" length="500" not-null="true" />
+		</property>
+
+	</class>
+</hibernate-mapping>

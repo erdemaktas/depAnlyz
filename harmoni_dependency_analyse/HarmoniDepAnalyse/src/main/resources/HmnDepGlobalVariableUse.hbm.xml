@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 24, 2013 9:13:46 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.sgo.depanalyze.hibernate.datamodel.HmnDepGlobalVariableUse"
+		table="HMNDEP_GLOBAL_VARIABLE_USE">
+		<id name="id" type="long">
+			<column name="ID" precision="16" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_HMNDEP_GLOBAL_VARIABLE_USE</param>
+			</generator>
+		</id>
+		<property name="executionId" type="long">
+			<column name="EXECUTION_ID" precision="16" scale="0" not-null="true" />
+		</property>
+		<property name="artifactId" type="long">
+			<column name="ARTIFACT_ID" precision="16" scale="0" />
+		</property>
+		<property name="className" type="string">
+			<column name="CLASS_NAME" length="500" not-null="true" />
+		</property>
+		<property name="methodName" type="string">
+			<column name="METHOD_NAME" length="500" not-null="true" />
+		</property>
+		<property name="usageType" type="string">
+			<column name="USAGE_TYPE" length="100" not-null="true" />
+		</property>
+		
+		<property name="fieldName" type="string">
+			<column name="FIELD_NAME" length="500" not-null="true" />
+		</property>
+		<property name="fieldType" type="string">
+			<column name="FIELD_TYPE" length="500" not-null="true" />
+		</property>
+		<property name="referenceType" type="string">
+			<column name="REFERENCE_TYPE" length="500" not-null="true" />
+		</property>
+		<property name="depLevel" type="integer">
+			<column name="DEPENDENCY_LEVEL" precision="2" scale="0" not-null="true" />
+		</property>
+		<property name="depPath" type="string">
+			<column name="DEPENDENCY_PATH" length="3000" />
+		</property>
+		
+	
+
+	</class>
+</hibernate-mapping>

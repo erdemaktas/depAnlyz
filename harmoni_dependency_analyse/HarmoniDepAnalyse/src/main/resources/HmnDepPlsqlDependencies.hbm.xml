@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 31, 2013 3:14:10 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.sgo.depanalyze.hibernate.datamodel.HmnDepPlsqlDependency"
+		table="HMNDEP_PLSQL_DEPENDENCIES">
+		<id name="id" type="long">
+			<column name="ID" precision="16" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_HMNDEP_PLSQL_DEPENDENCIES</param>
+			</generator>
+		</id>
+		<property name="executionId" type="long">
+			<column name="EXECUTION_ID" precision="16" scale="0" not-null="true" />
+		</property>
+		<property name="serviceClass" type="string">
+			<column name="SERVICE_CLASS" length="500" not-null="true" />
+		</property>
+		<property name="serviceMethod" type="string">
+			<column name="SERVICE_METHOD" length="500" not-null="true" />
+		</property>
+		<property name="packageName" type="string">
+			<column name="PACKAGE_NAME" length="500" not-null="false" />
+		</property>
+		<property name="procName" type="string">
+			<column name="PROC_NAME" length="500" not-null="false" />
+		</property>
+		<property name="dependencyLevel" type="integer">
+			<column name="DEPENDENCY_LEVEL" precision="2" scale="0"
+				not-null="true" />
+		</property>
+		<property name="dependencyPath" type="string">
+			<column name="DEPENDENCY_PATH" length="3000" />
+		</property>
+		<property name="artifactId" type="long">
+			<column name="ARTIFACT_ID" precision="16" scale="0" />
+		</property>
+	</class>
+</hibernate-mapping>

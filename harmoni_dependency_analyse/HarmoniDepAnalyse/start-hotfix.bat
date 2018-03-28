@@ -1,0 +1,2 @@
+"D:\Harmoni_Design_Studio\java\jdk-1.6.0_29-x64\bin\java.exe" -Xms1024m -Xmx2548m -XX:PermSize=512M -XX:MaxPermSize=1024m -jar "D:\Harmoni_Design_Studio\workspace\harmoni_dependency_analyse\HarmoniDepAnalyse\target\HarmoniDepAnalyse-SNAPSHOT-jar-with-dependencies.jar" -environment HOTFIX
+pause

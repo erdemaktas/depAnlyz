@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 25, 2013 12:15:54 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.sgo.depanalyze.hibernate.datamodel.HmnDepServiceDependency"
+		table="HMNDEP_SERVICE_DEPENDENCIES">
+		<id name="id" type="long">
+			<column name="ID" precision="16" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">SEQ_HMNDEP_SERVICE_DEPENDENCY</param>
+			</generator>
+		</id>
+		<property name="executionId" type="long">
+			<column name="EXECUTION_ID" precision="16" scale="0" not-null="true" />
+		</property>
+		<property name="artifactId" type="long">
+			<column name="ARTIFACT_ID" precision="16" scale="0" not-null="true" />
+		</property>
+		<property name="sourceClass" type="string">
+			<column name="CALLER_CLASS" length="500" not-null="true" />
+		</property>
+		<property name="sourceMethod" type="string">
+			<column name="CALLER_METHOD" length="500" not-null="true" />
+		</property>
+		<property name="sourceSignature" type="string">
+			<column name="CALLER_SIGNATURE" length="3000" not-null="true" />
+		</property>
+		<property name="targetService" type="string">
+			<column name="TARGET_SERVICE" length="500" not-null="true" />
+		</property>
+		<property name="targetMethod" type="string">
+			<column name="TARGET_METHOD" length="500" not-null="true" />
+		</property>
+		<property name="targetSignature" type="string">
+			<column name="TARGET_SIGNATURE" length="3000" not-null="true" />
+		</property>
+		<property name="depLevel" type="integer">
+			<column name="DEPENDENCY_LEVEL" precision="2" scale="0" not-null="true" />
+		</property>
+		<property name="depPath" type="string">
+			<column name="DEPENDENCY_PATH" length="3000" />
+		</property>
+
+	</class>
+</hibernate-mapping>

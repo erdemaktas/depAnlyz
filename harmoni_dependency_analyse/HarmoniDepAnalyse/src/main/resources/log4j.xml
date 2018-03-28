@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration debug="true"
+	xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+	<appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss} %5p %c{1} - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="fileAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="append" value="false" />
+		<param name="file" value="D:/Temp/HarmoniDepAnalyze/depanalyze.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ABSOLUTE} %-5p [%c{1}] %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="rollingFileAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="maxFileSize" value="40MB" />
+		<param name="maxBackupIndex" value="100" />
+		<param name="File" value="D:/Temp/HarmoniDepAnalyze/depanalyze.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- <param name="ConversionPattern" value="%d{ABSOLUTE} %-5p [%c{1}] %m%n" />-->
+			<param name="ConversionPattern" value="%d{dd/MM/yyyy HH:mm:ss.SSS} %-5p [%c{1}] %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="AlarmFileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="D:/Temp/HarmoniDepAnalyze/alarm.log" />
+		<param name="Append" value="false" />
+		<param name="DatePattern" value="'.'yyyy-ww" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd/MM/yyyy HH:mm:ss} %p [%t] [%c{1}] %m%n" />
+		</layout>
+	</appender>
+
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="rollingFileAppender" />
+	</root>
+
+	<logger name="com.sgo.depanalyze" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="rollingFileAppender" />
+	</logger>
+
+	<logger name="com.sgo.depanalyze.util.AlarmLogger" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="AlarmFileAppender" />
+	</logger>
+
+	<logger name="org.hibernate" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="rollingFileAppender" />
+	</logger>
+
+	<logger name="org.springframework" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="rollingFileAppender" />
+	</logger>
+
+</log4j:configuration>
