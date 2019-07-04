@@ -3,29 +3,7 @@
     <bean id="springApplicationContext" class="com.sgo.depanalyze.util.SpringApplicationContext" />
     <!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"><property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/><property name="url" value="jdbc:oracle:thin:@efes.sys.yapikredi.com.tr:1521:KBLIVE"/><property name="username" value="CBSLIVE"/><property name="password" value="anewhope"/></bean> -->
     <bean id="connectionPool1" class="oracle.jdbc.pool.OracleDataSource"
-		destroy-method="close">
-        <property name="connectionCachingEnabled" value="true" />
-        <property name="connectionCacheName" value="pool1" />
-        <!-- <property 
-			name="URL" value="jdbc:oracle:thin:@efes.sys.yapikredi.com.tr:1521:KBLIVE" 
-			/> -->
-        <property name="URL"
-			value="jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=efes.sys.yapikredi.com.tr)(PORT=1521)))(CONNECT_DATA=(SID=KBLIVE)))" />
-        <property name="user" value="CBSLIVE" />
-        <property name="password" value="anewhope" />
-        <property name="connectionCacheProperties">
-            <props merge="default">
-                <prop key="MinLimit">5</prop>
-                <prop key="MaxLimit">20</prop>
-                <prop key="InitialLimit">15</prop>
-                <prop key="ConnectionWaitTimeout">500</prop>
-                <prop key="InactivityTimeout">1000</prop>
-                <prop key="ValidateConnection">true</prop>
-            </props>
-        </property>
-        <!-- <property name="connectionCacheProperties"><value> MinLimit:1 
-			MaxLimit:5 InitialLimit:1 ConnectionWaitTimeout:120 InactivityTimeout:180 
-			ValidateConnection:true </value></property> -->
+	
     </bean>
     <bean id="mySessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
@@ -51,16 +29,7 @@
         </property>
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</prop>
-                <prop key="hibernate.connection.url">jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=efes.sys.yapikredi.com.tr)(PORT=1521)))(CONNECT_DATA=(SID=KBLIVE)))
-				</prop>
-                <prop key="hibernate.connection.username">CBSLIVE</prop>
-                <prop key="hibernate.connection.password">anewhope</prop>
-                <prop key="hibernate.connection.release_mode">auto</prop>
-                <prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
-                <prop key="hibernate.default_schema">CBSLIVE</prop>
-                <prop key="hibernate.show_sql">false</prop>
-                <prop key="hibernate.current_session_context_class">thread</prop>
+             
             </props>
         </property>
     </bean>
