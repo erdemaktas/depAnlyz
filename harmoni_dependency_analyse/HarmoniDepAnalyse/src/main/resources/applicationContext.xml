@@ -5,97 +5,13 @@
 
 	<bean id="springApplicationContext" class="com.sgo.depanalyze.util.SpringApplicationContext" />
 
-	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/> 
-		<property name="url" value="jdbc:oracle:thin:@efes.sys.yapikredi.com.tr:1521:KBLIVE"/> 
-		<property name="username" value="CBSLIVE"/> <property name="password" value="anewhope"/> 
-		</bean> -->
-
-	<bean id="cbsdevConnectionPool" class="oracle.jdbc.pool.OracleDataSource"
-		destroy-method="close">
-		<property name="connectionCachingEnabled" value="true" />
-		<property name="connectionCacheName" value="pool1" />
-		<property name="URL"
-			value="jdbc:oracle:thin:@kbtestcore.sys.yapikredi.com.tr:1818:KBTEST01" />
-		<property name="user" value="SANDBOX" />
-		<property name="password" value="SANDBOX1" />
-		<property name="connectionCacheProperties">
-			<props merge="default">
-				<prop key="MinLimit">5</prop>
-				<prop key="MaxLimit">20</prop>
-				<prop key="InitialLimit">15</prop>
-				<prop key="ConnectionWaitTimeout">500</prop>
-				<prop key="InactivityTimeout">1000</prop>
-				<prop key="ValidateConnection">true</prop>
-			</props>
-		</property>
-	</bean>
-
-	<bean id="hmndevConnectionPool" class="oracle.jdbc.pool.OracleDataSource"
-		destroy-method="close">
-		<property name="connectionCachingEnabled" value="true" />
-		<property name="connectionCacheName" value="pool2" />
-		<property name="URL"
-			value="jdbc:oracle:thin:@hmndev-scan.sys.yapikredi.com.tr:1521/HMNDEV" />
-		<property name="user" value="SYSPAR_RO" />
-		<property name="password" value="SYSPAR_RO" />
-		<property name="connectionCacheProperties">
-			<props merge="default">
-				<prop key="MinLimit">5</prop>
-				<prop key="MaxLimit">20</prop>
-				<prop key="InitialLimit">15</prop>
-				<prop key="ConnectionWaitTimeout">500</prop>
-				<prop key="InactivityTimeout">1000</prop>
-				<prop key="ValidateConnection">true</prop>
-			</props>
-		</property>
-	</bean>
-
-<!-- 	<bean id="sysparSessionFactory"
-		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-		<property name="dataSource">
-			<ref bean="hmndevConnectionPool" />
-		</property>
-	</bean> -->
 	
-	<bean id="cbsSessionFactory"
-		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-		<property name="dataSource">
-			<ref bean="cbsdevConnectionPool" />
-		</property>
-		<property name="mappingResources">
-			<list>
-				<value>HmnDepExecutions.hbm.xml</value>
-				<value>HmnDepArtifacts.hbm.xml</value>
-				<value>HmnDepServiceInterfaces.hbm.xml</value>
-				<value>HmnDepServiceSuperClasses.hbm.xml</value>
-				<value>HmnDepServiceClasses.hbm.xml</value>
-				<value>HmnDepServiceMethods.hbm.xml</value>
-				<value>HmnDepServiceDependencies.hbm.xml</value>
-				<value>HmnDepPlsqlDependencies.hbm.xml</value>
-				<value>HmnDepNqDependencies.hbm.xml</value>
-				<value>HmnDepFeDependencies.hbm.xml</value>
-				<value>HmnDepParameters.hbm.xml</value>
-				<value>HmnDepHbmTables.hbm.xml</value>
-				<value>HmnDepDaoDependencies.hbm.xml</value>
-				<value>HmnDepGlobalVariableUse.hbm.xml</value>
-			</list>
-		</property>
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</prop>
-				<prop key="hibernate.connection.url">jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=efes.sys.yapikredi.com.tr)(PORT=1521)))(CONNECT_DATA=(SID=KBTEST01)))
-				</prop>
-				<prop key="hibernate.connection.username">SANDBOX</prop>
-				<prop key="hibernate.connection.password">SANDBOX1</prop>
-				<prop key="hibernate.connection.release_mode">auto</prop>
-				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
-				<prop key="hibernate.default_schema">SANDBOX</prop>
-				<prop key="hibernate.show_sql">false</prop>
-				<prop key="hibernate.current_session_context_class">thread</prop>
-			</props>
-		</property>
+
+	<bean id="ConnectionPool" class="oracle.jdbc.pool.OracleDataSource"
+		
 	</bean>
+
+	
 	
 	<bean id="hmnDependencyDAO" class="com.sgo.depanalyze.hibernate.dao.HmnDependencyDAO">
 		<property name="sessionFactory" ref="cbsSessionFactory" />
